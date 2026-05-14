@@ -1,0 +1,14 @@
+.demo-card {
+  color: var(--bs-body-color);
+  transition: border-color 0.15s, box-shadow 0.2s, transform 0.1s;
+}
+.demo-card:hover {
+  border-color: var(--bs-primary);
+  box-shadow: var(--bs-box-shadow-sm);
+}
+.demo-card:hover .arrow {
+  transform: translateX(3px);
+}
+.arrow {
+  transition: transform 0.15s;
+}
