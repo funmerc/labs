@@ -13,6 +13,13 @@ export const DEMOS: Demo[] = [
       'A tiny deterministic toy transformer you can poke at. Step through tokenization, embeddings, positional encoding, attention, and output to see how each piece works.',
     tags: ['ML', 'visualization'],
   },
+  {
+    slug: 'ai/tokenizer',
+    title: 'BPE Tokenizer',
+    blurb:
+      'Train a byte-pair encoder right in your browser. Watch merges form on a tiny corpus, then see how the learned vocab splits your text and why some languages cost more tokens than others.',
+    tags: ['ML', 'visualization'],
+  },
 ]
 
 const CATEGORY_LABELS: Record<string, string> = {
