@@ -1,0 +1,292 @@
+/* Panel visibility, step nav, notes, presets are duplicated from the
+ * transformer demo so each lab stays self contained. */
+.panel {
+  display: none;
+}
+.panel.active {
+  display: block;
+}
+
+.step-flow {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.step-btn {
+  flex: 1 1 auto;
+  background: transparent;
+  border: none;
+  padding: 8px 6px;
+  font-size: 12px;
+  color: var(--bs-secondary-color);
+  cursor: pointer;
+  border-radius: var(--bs-border-radius-sm);
+  transition: background 0.15s, color 0.15s;
+  text-align: center;
+  white-space: nowrap;
+}
+.step-btn.active {
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font-weight: 500;
+  box-shadow: var(--bs-box-shadow-sm);
+}
+.step-btn:not(.active):hover {
+  background: var(--bs-secondary-bg);
+}
+.step-num {
+  display: block;
+  font-size: 10px;
+  line-height: 1;
+  opacity: 0.6;
+  margin-bottom: 2px;
+}
+.step-label {
+  display: block;
+}
+.step-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--bs-tertiary-color);
+  user-select: none;
+  font-size: 11px;
+  padding: 0 2px;
+}
+
+.note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--bs-secondary-color);
+  padding: 8px 12px;
+  border-left: 2px solid var(--bs-border-color);
+  background: var(--bs-tertiary-bg);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 1rem;
+}
+.note strong {
+  color: var(--bs-body-color);
+  font-weight: 500;
+}
+
+.preset-chip {
+  font-size: 12px;
+  padding: 2px 10px;
+}
+
+/* ── Token chips (deterministic color by hash) ──────────────── */
+.tok-chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 0.5px solid;
+  margin: 1px;
+  font-variant-numeric: tabular-nums;
+  cursor: default;
+}
+
+/* ── Panel 1: Character grid ────────────────────────────────── */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 6px;
+}
+.char-cell {
+  text-align: center;
+  padding: 8px 4px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--bs-body-bg);
+}
+.char-pos {
+  font-size: 10px;
+  color: var(--bs-secondary-color);
+  font-variant-numeric: tabular-nums;
+}
+.char-glyph {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.char-code {
+  font-size: 9px;
+  color: var(--bs-secondary-color);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--bs-font-monospace);
+}
+
+/* ── Panel 2: Training ──────────────────────────────────────── */
+.corpus-btn {
+  font-size: 12px;
+}
+
+.top-pair-callout {
+  padding: 10px 14px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-tertiary-bg);
+}
+
+.merge-rules-wrap {
+  max-height: 360px;
+  overflow: auto;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}
+.merge-table-scroll {
+  max-height: 360px;
+  overflow: auto;
+}
+
+.word-evolution {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 4px;
+}
+.word-evo-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  transition: background 0.25s, border-color 0.25s;
+}
+.word-evo-row.affected {
+  background: var(--bs-primary-bg-subtle);
+  border-color: var(--bs-primary-border-subtle);
+}
+.word-evo-label {
+  display: flex;
+  flex-direction: column;
+  font-variant-numeric: tabular-nums;
+}
+.word-evo-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+/* ── Panel 3: Vocab ─────────────────────────────────────────── */
+.vocab-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-body-bg);
+}
+
+/* ── Panel 4: Encoding ──────────────────────────────────────── */
+.live-grouping {
+  padding: 14px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-body-bg);
+  line-height: 1.9;
+  word-wrap: break-word;
+}
+.live-word {
+  display: inline;
+}
+.live-space {
+  display: inline-block;
+  width: 6px;
+}
+
+.token-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.token-id-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px 2px 4px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 16px;
+  background: var(--bs-body-bg);
+}
+.token-id {
+  font-size: 11px;
+  color: var(--bs-secondary-color);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--bs-font-monospace);
+}
+
+.word-tab {
+  font-size: 12px;
+}
+
+.encode-step-box {
+  padding: 14px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-body-bg);
+}
+.encode-step-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 30px;
+}
+.encode-step-label {
+  font-size: 13px;
+}
+
+/* ── Panel 5: Cost ──────────────────────────────────────────── */
+.cost-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cost-row {
+  padding: 14px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  background: var(--bs-body-bg);
+}
+.cost-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cost-stats {
+  display: flex;
+  gap: 16px;
+  font-variant-numeric: tabular-nums;
+  flex-wrap: wrap;
+}
+.cost-text {
+  font-family: var(--bs-font-monospace);
+  word-break: break-word;
+}
+.cost-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bs-tertiary-bg);
+  overflow: hidden;
+}
+.cost-bar-fill {
+  height: 100%;
+  background: var(--bs-primary);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.cost-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}

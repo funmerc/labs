@@ -20,6 +20,7 @@ labs/
   index.html                     home page entry
   ai/                            category folder
     transformers/index.html      one demo per folder
+    tokenizer/index.html
   src/
     main.ts                      home page renderer
     shared.ts                    bootstrap import, theme handling
@@ -30,6 +31,11 @@ labs/
         main.ts
         math.ts
         vocab.ts
+        ...
+      tokenizer/
+        main.ts
+        bpe.ts
+        corpus.ts
         ...
   vite.config.ts                 multi-page entries derived from src/demos.ts
 ```
