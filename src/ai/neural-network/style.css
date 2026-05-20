@@ -1,0 +1,291 @@
+/* Panel visibility, mirrors the other demos */
+.panel {
+  display: none;
+}
+.panel.active {
+  display: block;
+}
+
+/* ── Step flow nav ──────────────────────────────────────────── */
+.step-flow {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.step-btn {
+  flex: 1 1 auto;
+  background: transparent;
+  border: none;
+  padding: 8px 6px;
+  font-size: 12px;
+  color: var(--bs-secondary-color);
+  cursor: pointer;
+  border-radius: var(--bs-border-radius-sm);
+  transition: background 0.15s, color 0.15s;
+  text-align: center;
+  white-space: nowrap;
+}
+.step-btn.active {
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font-weight: 500;
+  box-shadow: var(--bs-box-shadow-sm);
+}
+.step-btn:not(.active):hover {
+  background: var(--bs-secondary-bg);
+}
+.step-num {
+  display: block;
+  font-size: 10px;
+  line-height: 1;
+  opacity: 0.6;
+  margin-bottom: 2px;
+}
+.step-label {
+  display: block;
+}
+.step-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--bs-tertiary-color);
+  user-select: none;
+  font-size: 11px;
+  padding: 0 2px;
+}
+
+/* ── 3D stage ───────────────────────────────────────────────── */
+.nn-stage {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--bs-border-radius);
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bs-tertiary-bg), var(--bs-body-bg));
+  border: 1px solid var(--bs-border-color);
+  cursor: grab;
+}
+.nn-stage:active {
+  cursor: grabbing;
+}
+.nn-stage canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nn-stage-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px 12px;
+}
+.nn-stage-hint {
+  background: var(--bs-body-bg);
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--bs-border-color);
+  opacity: 0.85;
+}
+.nn-run-btn {
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  .nn-stage {
+    height: 280px;
+  }
+}
+
+/* ── Heads up note (per-panel disclaimers) ──────────────────── */
+.note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--bs-secondary-color);
+  padding: 8px 12px;
+  border-left: 2px solid var(--bs-border-color);
+  background: var(--bs-tertiary-bg);
+  border-radius: 0 4px 4px 0;
+}
+.note strong {
+  color: var(--bs-body-color);
+  font-weight: 500;
+}
+
+/* ── Neuron math card (Panel 2) ─────────────────────────────── */
+.neuron-card {
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 16px;
+  background: var(--bs-body-bg);
+  margin-bottom: 1rem;
+}
+.neuron-math {
+  font-family: var(--bs-font-monospace);
+  font-size: 13px;
+  background: var(--bs-tertiary-bg);
+  padding: 10px 12px;
+  border-radius: var(--bs-border-radius-sm);
+  margin-bottom: 12px;
+  line-height: 1.7;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.neuron-math .term {
+  color: var(--bs-primary);
+}
+.neuron-math .op {
+  color: var(--bs-secondary-color);
+  margin: 0 4px;
+}
+.neuron-math .bias {
+  color: var(--bs-warning-text-emphasis, #997404);
+}
+.neuron-math .act {
+  color: var(--bs-success-text-emphasis, #146c43);
+  font-weight: 500;
+}
+
+/* Activation function previews */
+.activation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+}
+.activation-card {
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 12px;
+  background: var(--bs-body-bg);
+}
+.activation-name {
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.activation-desc {
+  font-size: 11px;
+  color: var(--bs-secondary-color);
+  line-height: 1.4;
+}
+.activation-card svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 6px 0;
+}
+
+/* ── Layer breakdown (Panel 1) ──────────────────────────────── */
+.layer-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.layer-pill {
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 12px 14px;
+  background: var(--bs-body-bg);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.layer-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  box-shadow: 0 0 0 3px var(--bs-body-bg), 0 0 0 4px var(--bs-border-color);
+}
+.layer-title {
+  font-weight: 500;
+  font-size: 13px;
+}
+.layer-desc {
+  font-size: 12px;
+  color: var(--bs-secondary-color);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── Training flow (Panel 4) ────────────────────────────────── */
+.train-steps {
+  counter-reset: train-step;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.train-steps li {
+  counter-increment: train-step;
+  padding: 10px 12px 10px 44px;
+  position: relative;
+  border-left: 2px solid var(--bs-border-color);
+  margin-left: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.train-steps li::before {
+  content: counter(train-step);
+  position: absolute;
+  left: -14px;
+  top: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--bs-secondary-color);
+}
+.train-steps li strong {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+/* ── Uses grid (Panel 5) ────────────────────────────────────── */
+.uses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.use-card {
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 14px;
+  background: var(--bs-body-bg);
+  transition: border-color 0.15s, transform 0.1s;
+}
+.use-card:hover {
+  border-color: var(--bs-primary);
+  transform: translateY(-1px);
+}
+.use-icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.use-title {
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.use-desc {
+  font-size: 11px;
+  color: var(--bs-secondary-color);
+  line-height: 1.45;
+}
+.use-examples {
+  font-size: 11px;
+  color: var(--bs-secondary-color);
+  margin-top: 6px;
+  font-style: italic;
+}
