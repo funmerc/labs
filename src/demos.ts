@@ -20,6 +20,13 @@ export const DEMOS: Demo[] = [
       'Train a byte-pair encoder right in your browser. Watch merges form on a tiny corpus, then see how the learned vocab splits your text and why some languages cost more tokens than others.',
     tags: ['ML', 'visualization'],
   },
+  {
+    slug: 'ai/neural-network',
+    title: '3D Neural Network',
+    blurb:
+      'Spin a feedforward network in 3D, watch a forward pass ripple through it, and step through what neurons, layers, and training actually do. Plus a tour of where neural nets show up across modern AI.',
+    tags: ['ML', '3D', 'visualization'],
+  },
 ]
 
 const CATEGORY_LABELS: Record<string, string> = {

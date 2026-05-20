@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Neural Network | Labs</title>
+  </head>
+  <body>
+    <div class="container py-4" style="max-width: 960px">
+      <h2 class="visually-hidden">Interactive 3D neural network. Rotate the model, step through what neurons, layers, and forward passes are, and see where neural nets show up in real-world AI.</h2>
+
+      <div class="nn-stage mb-3">
+        <canvas id="nn-canvas"></canvas>
+        <div class="nn-stage-overlay">
+          <div class="nn-stage-hint small text-secondary">Drag to rotate, right-click to pan, scroll to zoom</div>
+          <button id="run-btn" class="btn btn-sm btn-primary nn-run-btn" type="button">▶ Run forward pass</button>
+        </div>
+      </div>
+
+      <div class="step-flow bg-body-tertiary rounded mb-4 p-1" id="steps"></div>
+
+      <div id="panels"></div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button class="btn btn-outline-secondary" id="prev-btn">← Previous</button>
+        <button class="btn btn-primary" id="next-btn">Next →</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/ai/neural-network/main.ts"></script>
+  </body>
+</html>
